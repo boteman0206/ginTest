@@ -4,5 +4,15 @@
   "app_name": "cloudrestrant",
   "app_mode": "debug",
   "app_host": "localhost",
-  "app_port": "9000"
+  "app_port": "9000",
+
+  "database":{
+    "driver": "mysql",
+    "user": "root",
+    "password": "1234",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "db_name": "ginPro",
+    "charset": "utf-8"
+  }
 }

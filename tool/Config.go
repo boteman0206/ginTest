@@ -14,6 +14,17 @@ type Config struct {
 	AppHost string `json:"app_host"`
 
 	AppPort string `json:"app_port"`
+
+	DataBase DataBaseConfig `json:"database"`
+}
+type DataBaseConfig struct {
+	Driver   string `json:"driver"`
+	User     string `json:"user"`
+	Password string `json:"password"`
+	Host     string `json:"host"`
+	Port     string `json:"port"`
+	DbName   string `json:"db_name"`
+	Charset  string `json:"charset"`
 }
 
 func ParseConfig(path string) (*Config, error) {

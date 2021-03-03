@@ -5,6 +5,7 @@ import (
 	"ginPro1/controller"
 	"ginPro1/tool"
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 // 项目入口
@@ -18,6 +19,13 @@ func main() {
 		return
 	}
 	fmt.Println("config: ", config)
+
+	//todo 初始化xorm引擎
+	xormEngin, i := tool.OrmEngin(config)
+	if i != nil {
+		log.Fatal(i.Error())
+	}
+	fmt.Println("OrmEngin : ", xormEngin)
 
 	engine := gin.Default()
 
