@@ -32,4 +32,5 @@ func initRouter(router *gin.Engine) {
 
 	new(controller.UserController).UserRouter(router)
 
+	new(controller.MemberController).MemberRouter(router)
 }
