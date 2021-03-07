@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	user2 "ginPro1/user"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -45,6 +47,21 @@ func main() {
 		context.HTML(http.StatusOK, "title.html", gin.H{
 			"title": "this is write title.",
 		})
+
+	})
+
+	//todo 绑定uri参数的另外一种方式
+	engine.GET("/shouldBandUrl/:name/:age", func(context *gin.Context) {
+
+		var user user2.User
+		context.ShouldBindUri(&user)
+
+		context.JSON(http.StatusOK, gin.H{
+			"name": user.UserName,
+			"age":  user.UserAge,
+		})
+
+		fmt.Println("user =:", user)
 
 	})
 

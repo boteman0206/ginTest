@@ -7,8 +7,9 @@ type UserController struct {
 
 // todo userInfo的引擎
 func (user UserController) UserRouter(engine *gin.Engine) {
-
-	engine.GET("/userInfo", user.userInfo)
+	// 设置路由
+	group := engine.Group("/api")
+	group.GET("/userInfo", user.userInfo)
 
 }
 
